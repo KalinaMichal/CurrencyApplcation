@@ -1,0 +1,56 @@
+/* check-me.component.css */
+
+h1 {
+  color: #333;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+div {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 300px;
+}
+
+h2 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+p {
+  margin: 5px 0;
+}
+
+/* Dodatkowy styl dla wyniku - kolor zielony dla dodatnich wartości, czerwony dla ujemnych */
+p.result {
+  color: green;
+}
+
+p.result.negative {
+  color: red;
+}

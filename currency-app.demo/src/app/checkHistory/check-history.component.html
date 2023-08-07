@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Currency Queries history<</title>
+</head>
+<body>
+<div *ngIf="loading; else elementList">
+  Waiting for server response...
+</div>
+<ng-template #elementList>
+  <div>
+    <h1>Currency Queries history</h1>
+      <div *ngFor="let query of listOfQueries">
+        <p><strong>Name:</strong> {{ query.name }}</p>
+        <p><strong>Currency code:</strong> {{ query.currency }}</p>
+        <p><strong>Date:</strong> {{ query.date }}</p>
+        <p><strong>Exchange rate:</strong> {{ query.value }}</p>
+      </div>
+    <ng-container *ngIf="listOfQueries && !listOfQueries.length" [ngTemplateOutlet]="noItems"></ng-container>
+  </div>
+</ng-template>
+<ng-template #noItems>
+  <h2>List is Empty</h2>
+</ng-template>
+</body>
+</html>
