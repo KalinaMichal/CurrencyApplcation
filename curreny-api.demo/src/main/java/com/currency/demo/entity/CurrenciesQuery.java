@@ -30,6 +30,6 @@ public class CurrenciesQuery {
         this.currency=currency;
         this.name=name;
         this.value=value;
-        this.date =  new java.sql.Timestamp(new Date().getTime());
+        this.date = new java.sql.Timestamp(new Date().getTime());
     }
 }

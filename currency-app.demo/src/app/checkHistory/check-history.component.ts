@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrenciesService } from '../service/currencies.service';
 import { CurrencyQueryItem } from '../models/currency-query.model';
-import {HttpErrorResponse} from "@angular/common/http";
-import {catchError, throwError} from "rxjs";
+import {AlertService} from "../service/alert.service";
 
 @Component({
   selector: 'app-root',
@@ -11,27 +10,17 @@ import {catchError, throwError} from "rxjs";
 })
 export class CheckHistoryComponent implements OnInit {
   public listOfQueries: CurrencyQueryItem[] | undefined;
-  loading: boolean = true;
+  public loading: boolean = true;
 
-  constructor(private backendService: CurrenciesService) {}
+  constructor(private backendService: CurrenciesService, private alertService: AlertService) {}
 
   ngOnInit() {
-    this.backendService.downloadCurrencyQueryData().subscribe((data) => {
-      this.listOfQueries = data;
-      this.loading = false;
-    }),
-      catchError((error: HttpErrorResponse) => {
-        if (error.status === 404) {
-          console.log('Resource not found:', error);
-        }
-        else if (error.status === 504) {
-          console.log('Server might me offline:', error);
-        }
-        else {
-          console.error('Unexpected error occurred:', error);
-        }
-        return throwError(() => new Error('Error occurred: ' + error));
-      });
-
+    this.backendService.downloadCurrencyQueryData().subscribe({
+      next: (data) => {
+        this.listOfQueries = data;
+        this.loading = false;
+      },
+      error: err => this.alertService.showErrorAlert(err.error)
+    });
   }
 }

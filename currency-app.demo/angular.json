@@ -111,5 +111,8 @@
       }
     }
   },
-  "defaultProject": "currency-client"
+  "defaultProject": "currency-client",
+  "cli": {
+    "analytics": false
+  }
   }

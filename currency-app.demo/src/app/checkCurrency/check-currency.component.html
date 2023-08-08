@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Currency calculator</title>
-  </head>
-  <body>
-    <div>
-      <h1>Currency calculator</h1>
-      <form *ngIf="rate== undefined" (submit)="calculateCurrency()">
-        <label>Currency code:</label>
-        <input type="text" [(ngModel)]="currencyCode" [ngModelOptions]="{standalone: true}" required>
+<div>
+  <h1>Currency calculator</h1>
+  <form *ngIf="rate== undefined" (submit)="calculateCurrency()">
+    <label>Currency code:</label>
+    <input type="text" [(ngModel)]="currencyCode" [ngModelOptions]="{standalone: true}" required>
 
-        <label >Username:</label>
-        <input type="text" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" required>
+    <label >Username:</label>
+    <input type="text" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" required>
 
-        <button type="submit" [disabled]="isSubmitDisabled">Submit</button>
-      </form>
-      <label *ngIf="errorMessage">{{errorMessage}}</label>
-      <div *ngIf="rate">
-        <h2>Result:</h2>
-        <p>Currency code: {{ currencyCode }}</p>
-        <p>Username: {{ userName }}</p>
-        <p>Result: {{ rate }}</p>
-      </div>
-    </div>
-  </body>
-</html>
+    <button type="submit" [disabled]="!this.currencyCode || !this.userName">Submit</button>
+  </form>
+  <label *ngIf="errorMessage">{{errorMessage}}</label>
+  <div class="result-container" *ngIf="rate">
+    <h2>Result:</h2>
+    <p>Currency code: {{ currencyCode }}</p>
+    <p>Username: {{ userName }}</p>
+    <p>Result: {{ rate }}</p>
+  </div>
+</div>

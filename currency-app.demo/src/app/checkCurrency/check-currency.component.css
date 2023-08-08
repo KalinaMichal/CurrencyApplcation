@@ -1,5 +1,3 @@
-/* check-me.component.css */
-
 h1 {
   color: #333;
 }
@@ -23,12 +21,17 @@ button {
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
+  margin-left: 3px;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
   background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: gray;
 }
 
 div {
@@ -46,11 +49,14 @@ p {
   margin: 5px 0;
 }
 
-/* Dodatkowy styl dla wyniku - kolor zielony dla dodatnich wartości, czerwony dla ujemnych */
 p.result {
   color: green;
 }
 
 p.result.negative {
   color: red;
+}
+
+.result-container {
+  width: 250px;
 }

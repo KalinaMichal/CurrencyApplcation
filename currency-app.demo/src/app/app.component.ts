@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AlertService} from "./service/alert.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'currency-client';
+  public isAlertVisible = false;
+
+
+  constructor(public alertService: AlertService) {}
 }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes} from '@angular/router';
 import { CurrencyCalculatorComponent } from './checkCurrency/check-currency.component';
 import { CheckHistoryComponent } from './checkHistory/check-history.component';
 import { HomeComponent } from './homePage/home.component';

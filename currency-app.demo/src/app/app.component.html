@@ -1,32 +1,33 @@
-<!-- app.component.html -->
+<div class="app-container">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-logo" href="#">Currency Application</a>
+    </div>
+    <ul class="navbar-menu">
+      <li class="navbar-item">
+        <a class="navbar-link" routerLink="">Main Page</a>
+      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" routerLink="/check-currency">Currency value</a>
+      </li>
+      <li class="navbar-item">
+        <a class="navbar-link" routerLink="/check-history">Query history</a>
+      </li>
+    </ul>
+  </nav>
 
-<!-- Main navigate bar -->
-<nav class="navbar">
-  <div class="navbar-brand">
-    <a class="navbar-logo" href="#">Currency Application</a>
-  </div>
-  <ul class="navbar-menu">
-    <li class="navbar-item">
-      <a class="navbar-link" routerLink="">Main Page</a>
-    </li>
-    <li class="navbar-item">
-      <a class="navbar-link" routerLink="/check-currency">Currency value</a>
-    </li>
-    <li class="navbar-item">
-      <a class="navbar-link" routerLink="/check-history">Query history</a>
-    </li>
-  </ul>
-</nav>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
 
-<!-- Main app text -->
-<main class="main-content">
-  <router-outlet></router-outlet>
-</main>
+  <footer>
+    <p>
+      &copy; 2023 Currency App. Application for recruitment needs for xCode
+      Software.
+    </p>
+  </footer>
+</div>
 
-<!-- Footer -->
-<footer class="footer">
-  <p>
-    &copy; 2023 Currency App. Application for recruitment needs for xCode
-    Software.
-  </p>
-</footer>
+<div class="alert" [ngClass]="alertService.alertState">
+  {{ alertService.message }}
+</div>

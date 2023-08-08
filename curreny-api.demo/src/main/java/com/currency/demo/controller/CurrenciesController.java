@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/currencies")
 @RequiredArgsConstructor
 @Slf4j
 public class CurrenciesController {
@@ -20,7 +21,7 @@ public class CurrenciesController {
 
     private final NbpService nbpService;
 
-    @RequestMapping(value = "currencies/get-current-currency-value-command", method = RequestMethod.POST)
+    @PostMapping("/get-current-currency-value-command")
     public CurrentCurrencyResponse getCurrentCurrencyValueCommand(@RequestBody CurrentCurrencyRequest currentCurrencyRequest){
 
         log.info("POST get-current-currency-value-command started");
@@ -34,7 +35,7 @@ public class CurrenciesController {
         return new CurrentCurrencyResponse(currencyValue);
     }
 
-    @RequestMapping(value = "currencies/requests", method = RequestMethod.GET)
+    @GetMapping( "/requests")
     public List<CurrenciesQuery> readStudents(){
 
         log.info("GET requests started");
