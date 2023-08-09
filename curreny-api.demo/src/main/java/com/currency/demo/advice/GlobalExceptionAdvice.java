@@ -14,7 +14,7 @@ public class GlobalExceptionAdvice {
     public ResponseEntity<String> handleException(Exception ex) {
 
         log.warn("An internal server error occurred: " + ex);
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body("An internal server error occurred");
+        return new ResponseEntity<>("An internal server error occurred", HttpStatus.INTERNAL_SERVER_ERROR)
+
     }
 }

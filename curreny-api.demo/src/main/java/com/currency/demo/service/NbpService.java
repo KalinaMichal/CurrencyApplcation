@@ -32,7 +32,7 @@ public class NbpService {
             throw new CurrencyNotFoundException();
         } catch (Exception e){
             e.printStackTrace();
-            throw new RuntimeException("Unexpected error occurred in NbpService");
+            throw new RuntimeException(e.getMessage());
         }
     }
 }

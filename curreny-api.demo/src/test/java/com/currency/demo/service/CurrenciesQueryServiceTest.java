@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class CurrenciesQueryServiceTest{
 
     @Autowired
-    private MockMvc mvc;
+    MockMvc mvc;
 
     @Autowired
     CurrenciesQueryRepository currenciesQueryRepository;
@@ -49,7 +49,7 @@ public class CurrenciesQueryServiceTest{
         String jsonRequest = "{\"name\":\"Adam\",\"currency\":\"USD\"}";
 
         //when
-        ResultActions result = mvc.perform(post("/currencies/get-current-currency-value-command")
+        ResultActions result = mvc.perform(post("api/currencies/get-current-currency-value-command")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonRequest));
 
@@ -69,7 +69,7 @@ public class CurrenciesQueryServiceTest{
         String jsonRequest = "{\"name\":\"Leszek\",\"currency\":\"NOTOK\"}";
 
         //when
-        ResultActions result = mvc.perform(post("/currencies/get-current-currency-value-command")
+        ResultActions result = mvc.perform(post("api/currencies/get-current-currency-value-command")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonRequest));
 
@@ -86,7 +86,7 @@ public class CurrenciesQueryServiceTest{
         currenciesQueryRepository.save(currenciesQuery);
 
         //when
-        ResultActions getResult = mvc.perform(get("/currencies/requests"));
+        ResultActions getResult = mvc.perform(get("api/currencies/requests"));
 
         //then
         getResult.andExpect(status().isOk())
